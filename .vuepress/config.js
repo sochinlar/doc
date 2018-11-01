@@ -2,7 +2,7 @@ module.exports = {
   port: "3000",
   dest: "docs",
   ga: "UA-85414008-1",
-  base: "/",
+  base: "/doc/",
   locales: {
     "/": {
       lang: "zh-CN",
