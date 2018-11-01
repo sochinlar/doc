@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "11"
+cache:
+  directories:
+    - "node_modules"
+install:
+  - npm install -g vuepress
+script:
+  - npm run build
+notifications:
+  email: false
+
+after_script:
+  - ls -al
+  - git config user.name "yandixuan"
+  - git config user.email "451868992@qq.com"
+  - git add .
+  - git commit -m "Update docs"
+  # - git push "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    - doc

@@ -1,0 +1,14 @@
+{
+  "name": "emc-doc",
+  "version": "0.0.1",
+  "description": "for docs",
+  "author": "yandixuan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "devDependencies": {
+    "vuepress": "^0.14.4"
+  }
+}
