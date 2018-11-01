@@ -17,9 +17,12 @@ after_script:
   - git config user.email "451868992@qq.com"
   - git add .
   - git commit -m "Update docs"
-  # - git push "https://${GH_TOKEN}@${GH_REF}" master:master
-  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push "https://${GH_TOKEN}@${GH_REF}" master:master
+  # - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
 
 branches:
   only:
-    - doc
+    - master
+env:
+  global:
+    - GH_REF=github.com/yandixuan/yandixuan.github.io.git
