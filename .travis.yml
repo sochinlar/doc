@@ -12,13 +12,12 @@ notifications:
   email: false
 
 after_script:
-  - ls -al
+  - git init
   - git config user.name "yandixuan"
   - git config user.email "451868992@qq.com"
-  - git add .
+  - git add docs/
   - git commit -m "Update docs"
-  - git push "https://${GH_TOKEN}@${GH_REF}" master:master
-  # - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:doc
 
 branches:
   only:
