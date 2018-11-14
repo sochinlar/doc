@@ -2,7 +2,7 @@ module.exports = {
   port: "3000",
   dest: "docs",
   ga: "UA-85414008-1",
-  base: "/doc/",
+  base: "/",
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
   plugins: {
     "@vuepress/back-to-top": true,
