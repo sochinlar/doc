@@ -37,3 +37,20 @@ sidebarDepth: 3
 ### CoAP
 
 <img :src="$withBase('/img/coapInfo.png')" alt="addDevice">
+
+## 批量导入
+
+- 先点击`导出模板`按钮，下载模板 excel 表格。
+
+::: warning 注意
+
+1. 设备 id 不能为空
+2. 设备 id 不能重复
+3. 设备 id 不能出现数字字母以外的字符
+4. 设备名称不能为空
+
+:::
+
+按要求填入设备 id 及名称后先保存文件。然后点击导入按钮，选择相应的应用 ID
+
+<img :src="$withBase('/img/deviceImport.png')" alt="deviceImport">
