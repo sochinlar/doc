@@ -3,15 +3,17 @@ module.exports = {
   dest: "docs",
   ga: "UA-85414008-1",
   base: "/doc/",
+  head: [["link", { rel: "icon", href: `/favicon.ico` }]],
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "Emc-Doc",
-      description: "就是文档而已"
+      title: "LanTrue",
+      description: "物联网平台"
     }
   },
   //主题
   themeConfig: {
+    lastUpdated: "上次更新时间",
     nav: require("./nav/zh"),
     sidebar: {
       "/guide/": genSidebarConfig("指南")
@@ -22,24 +24,9 @@ module.exports = {
 function genSidebarConfig(title) {
   return [
     {
-      title: "快速入门",
+      title: "平台使用帮助",
       collapsable: false,
-      children: []
-    },
-    {
-      title: "核心功能",
-      collapsable: false,
-      children: []
-    },
-    {
-      title: "真的不知道了",
-      collapsable: false,
-      children: []
-    },
-    {
-      title: "FAQ",
-      collapsable: false,
-      children: []
+      children: ["", "registerAndLogin"]
     }
   ];
 }
