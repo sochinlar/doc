@@ -4,6 +4,13 @@ module.exports = {
   ga: "UA-85414008-1",
   base: "/doc/",
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
+  plugins: {
+    "@vuepress/back-to-top": true,
+    "@vuepress/pwa": {
+      serviceWorker: true,
+      updatePopup: true
+    }
+  },
   locales: {
     "/": {
       lang: "zh-CN",
@@ -18,6 +25,13 @@ module.exports = {
     sidebar: {
       "/guide/": genSidebarConfig("指南")
     }
+  },
+  serviceWorker: {
+    updatePopup: true,
+    updatePopup: {
+      message: "New content is available.",
+      buttonText: "Refresh"
+    }
   }
 };
 
@@ -26,7 +40,14 @@ function genSidebarConfig(title) {
     {
       title: "平台使用帮助",
       collapsable: false,
-      children: ["", "registerAndLogin"]
+      children: [
+        "",
+        "registerAndLogin",
+        "appManage",
+        "deviceManage",
+        "secretManage",
+        "onlineDebug"
+      ]
     }
   ];
 }
