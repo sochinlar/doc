@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在线调试 | LanTrue</title>
+    <meta name="description" content="物联网平台">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.cc2a2ebf.css" as="style"><link rel="preload" href="/assets/js/app.13f49cfa.js" as="script"><link rel="preload" href="/assets/js/7.9b98c8db.js" as="script"><link rel="prefetch" href="/assets/js/10.9eb223f0.js"><link rel="prefetch" href="/assets/js/2.be3cc0f8.js"><link rel="prefetch" href="/assets/js/3.cd0a6ffc.js"><link rel="prefetch" href="/assets/js/4.140aac2e.js"><link rel="prefetch" href="/assets/js/5.0b51af88.js"><link rel="prefetch" href="/assets/js/6.1bc17ea5.js"><link rel="prefetch" href="/assets/js/8.24dac6aa.js"><link rel="prefetch" href="/assets/js/9.fcce7a57.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cc2a2ebf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LanTrue</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">简体中文</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/" class="nav-link">简体中文</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>平台使用帮助</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/guide/" class="sidebar-link">简介</a></li><li><a href="/guide/registerAndLogin.html" class="sidebar-link">注册/登录</a></li><li><a href="/guide/appManage.html" class="sidebar-link">应用管理</a></li><li><a href="/guide/deviceManage.html" class="sidebar-link">设备管理</a></li><li><a href="/guide/secretManage.html" class="sidebar-link">秘钥管理</a></li><li><a href="/guide/onlineDebug.html" class="active sidebar-link">在线调试</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="在线调试"><a href="#在线调试" aria-hidden="true" class="header-anchor">#</a> 在线调试</h1> <p>此管理系统可以提供调试功能，完成模拟请求。如图所示：
+<img src="/img/apiTest.png" alt="apiTest"></p> <ul><li>调试接口
+<ul><li>模拟向设备单发消息：<code>http://iop-api.lantrue.net/recv/app/message/one</code></li> <li>模拟向设备群发消息：<code>http://iop-api.lantrue.net/recv/app/message/batch</code></li></ul></li> <li>请求方式:使用 POST</li> <li>Content-type:选择 application/json</li> <li>请求头参数：
+<ul><li>消息单发 appId,deviceId,appSecret</li> <li>消息群发 appId,appSecret</li> <li>请求参数：{“payload”:”this is your message !”}</li></ul></li> <li>点击执行</li> <li>调试结果</li></ul></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间: </span> <span class="time">11/14/2018, 3:49:17 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/guide/secretManage.html" class="prev">
+          秘钥管理
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/7.9b98c8db.js" defer></script><script src="/assets/js/app.13f49cfa.js" defer></script>
+  </body>
+</html>
