@@ -46,7 +46,8 @@ function genSidebarConfig(title) {
         "appManage",
         "deviceManage",
         "secretManage",
-        "onlineDebug"
+        "onlineDebug",
+        "accessManage"
       ]
     }
   ];
