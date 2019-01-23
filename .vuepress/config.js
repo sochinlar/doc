@@ -47,7 +47,8 @@ function genSidebarConfig(title) {
         "deviceManage",
         "secretManage",
         "onlineDebug",
-        "accessManage"
+        "accessManage",
+        "sdkAccessGuide"
       ]
     }
   ];

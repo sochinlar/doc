@@ -1,6 +1,6 @@
 # 接入管理
 
-&emsp;Lanture物联网平台支持CoAP,MQTT,TCP,UDP设备接入功能。针对CoAP协议设备接入，分为默认设备及电信卡设备接入。
+&emsp;Lantrue物联网平台支持CoAP,MQTT,TCP,UDP设备接入功能。针对CoAP协议设备接入，分为默认设备及电信卡设备接入。
 
 ## 电信NB卡设备接入
 
