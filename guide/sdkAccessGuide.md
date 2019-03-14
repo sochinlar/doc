@@ -209,6 +209,8 @@ public calss YourClass{
 
 ```java
 public class TestService{
+    @Resource
+    private SubscribeClient subscribeClient;
     public void test(){
       DeviceStatusQueryVO deviceStatusQueryVO;
       // 参数组合1     没有给实际参数，则查所有订阅成功的产品的设备状态
