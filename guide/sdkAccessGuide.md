@@ -206,6 +206,14 @@ public calss YourClass{
       结果交给客户端处理。
 ```
 #### 3.1 客户端使用查询接口查询设备状态指导
++ 依赖如下，配置见1.3.4
+```
+  <dependency>
+      <groupId>com.whxx</groupId>
+      <artifactId>emc-sdk</artifactId>
+      <version>1.3.4</version>
+  </dependency>
+```
 
 ```java
 public class TestService{
