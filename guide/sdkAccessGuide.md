@@ -198,13 +198,14 @@ public calss YourClass{
 
 ### 3. 新增
 
-+ 客户端查询查询接口（since v1.4.0）
++ 客户端查询接口（since v1.4.0）
 ```
-      提供了用来统一查询的方法：客户端调用方调用此方法--》sdk将查询参数封装成一条查询指令通过tcp通道发送给服务端，
-  服务端收到之后调用其它服务查询出结果来，再通过TCP通道将消息异步返回给sdk客户端，客户端收到查询结果后调用
-  MessageHander 的apiResponse(ApiResVO apiResVO) 将结果交给客户端处理。
+      提供了用来统一查询的方法：客户端调用方调用此方法--》sdk将查询参数封装成一条查询指令通过
+      tcp通道发送给服务端，服务端收到之后调用其它服务查询出结果来，再通过TCP通道将消息异步返回
+      给sdk客户端，客户端收到查询结果后调用MessageHander 的apiResponse(ApiResVO apiResVO) 将
+      结果交给客户端处理。
 ```
-#### 3.1 客户端查询查询接口
+#### 3.1 客户端使用查询接口查询设备状态指导
 
 ```java
 public class TestService{
@@ -219,25 +220,41 @@ public class TestService{
       deviceStatusQueryVO.setAppIds(appIds);
       
       // 参数组合3  查询某appID 下的某设备状态
-      deviceStatusQueryVO.setAppId("appId001");必须为已经订阅成功的产品ID
-      deviceStatusQueryVO.setDeviceId("devideId001");必须为setAppId中的产品ID下的设备ID
+      deviceStatusQueryVO.setAppId("appId001");//必须为已经订阅成功的产品ID
+      deviceStatusQueryVO.setDeviceId("devideId001");//必须为setAppId中的产品ID下的设备ID
       
       //调用方法：
-      subscribeClient.deviceStatusQuery(deviceStatusQueryVO);
-  
       //最终查询的结果会异步推送到   MessageHander 的apiResponse(ApiResVO apiResVO)接口中
-     /**
-      @Override
-     public void apiResponse(ApiResVO apiResVO) {
-         log.info("查询名称：{}", apiResVO.getQueryName());
-         log.info("查询返回结果：【{}】", apiResVO.getResult());
-     }
-      如返回结果 apiResVO.getResult() 为  Map<String,Map<String,String>>  map<产品ID，map<设备ID，状态>> 的json数据
-      查询名称：DEVICE_STATUS
-      查询返回结果：【{"app001":{"device1":"ONLINE","device2":"OFFLINE"}}】
-      */
+      subscribeClient.deviceStatusQuery(deviceStatusQueryVO);
+      
     }
 }
 
+@Component
+@Slf4j
+public class MyMessageHandler extends AbstractMessageHandler {
+    @Override
+    public void onMessage(MessageDTO messageDTO) {
+        log.info("收到来自应用【{}】的消息，本次接收{}条",messageDTO.getProductId(),messageDTO.getTotal());
+        log.info("消息内容：{}",messageDTO.getList());
+    }
+    @Override
+    public void commandRes(CommandResDTO res) {
+        log.info("指令下达结果：{}", res);
+    }
+    /**
+    * 最终查询的结果会异步推送到此接口中
+    * @param apiResVO
+    *   如返回结果 apiResVO.getResult() 为  Map<String,Map<String,String>>  map<产品ID，map<设备ID，状态>> 的json数据
+    *   查询名称：DEVICE_STATUS
+    *   查询返回结果：【{"app001":{"device1":"ONLINE","device2":"OFFLINE"},"app002":{"device3":"NOSTATUS"}}】
+    *   对于MQTT,TCP设备，会返回ONLINE/OFFLINE状态表示在线/离线状态，其它协议设备不能监测状态，用NOSTATUS表示
+    */
+    @Override
+    public void apiResponse(ApiResVO apiResVO) {
+        log.info("查询名称：{}", apiResVO.getQueryName());
+        log.info("查询返回结果：【{}】", apiResVO.getResult());
+    }
+}
     
 ```
