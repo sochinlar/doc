@@ -176,3 +176,68 @@ public calss YourClass{
     }
 }
 ```
+
+## v1.4.0
+
+### 1. 改进
+
++ sdk客户端订阅产品ID不再需要用户名subscribe.client.username这一属性配置：这就意味着用户可以订阅多个多个产品，多个产品可能来自多个用户，
+但不变的是，同一个产品同一时刻只能被一个客户端订阅。如果某APPID已经被订阅了，那么另一客户端订阅此APPID则会连接失败
+
++ 删除之前@Deprecated rest http查询消息记录接口相关的代码
+
+### 2. 优化
+
++ 客户端连接：如果有相同的用户名已经连接了就不允许再次连接，以免互踢给服务端增加压力
+
++ 重连时间间隔默认值修改为 5 秒(原来为1秒)
+
++ 提供查询产品在线订阅的产品
+
++ 增加--客户端处理消息失败时告知服务端知晓(服务端打印客户端处理失败的消息ID warn日志)
+
+### 3. 新增
+
++ 客户端查询查询接口（since v1.4.0）
+```
+      提供了用来统一查询的方法：客户端调用方调用此方法--》sdk将查询参数封装成一条查询指令通过tcp通道发送给服务端，
+  服务端收到之后调用其它服务查询出结果来，再通过TCP通道将消息异步返回给sdk客户端，客户端收到查询结果后调用
+  MessageHander 的apiResponse(ApiResVO apiResVO) 将结果交给客户端处理。
+```
+#### 3.1 客户端查询查询接口
+
+```java
+public class TestService{
+    public void test(){
+      DeviceStatusQueryVO deviceStatusQueryVO;
+      // 参数组合1     没有给实际参数，则查所有订阅成功的产品的设备状态
+      deviceStatusQueryVO = null;//或者 deviceStatusQueryVO = new DeviceStatusQueryVO() 
+      
+      // 参数组合2    给定要查询一个或多个产品的设备状态
+      Set<String> appIds = new HashSet<>();
+      appIds.add("appID002");//appID002 必须为已经订阅成功的产品ID
+      deviceStatusQueryVO.setAppIds(appIds);
+      
+      // 参数组合3  查询某appID 下的某设备状态
+      deviceStatusQueryVO.setAppId("appId001");必须为已经订阅成功的产品ID
+      deviceStatusQueryVO.setDeviceId("devideId001");必须为setAppId中的产品ID下的设备ID
+      
+      //调用方法：
+      subscribeClient.deviceStatusQuery(deviceStatusQueryVO);
+  
+      //最终查询的结果会异步推送到   MessageHander 的apiResponse(ApiResVO apiResVO)接口中
+     /**
+      @Override
+     public void apiResponse(ApiResVO apiResVO) {
+         log.info("查询名称：{}", apiResVO.getQueryName());
+         log.info("查询返回结果：【{}】", apiResVO.getResult());
+     }
+      如返回结果 apiResVO.getResult() 为  Map<String,Map<String,String>>  map<产品ID，map<设备ID，状态>> 的json数据
+      查询名称：DEVICE_STATUS
+      查询返回结果：【{"app001":{"device1":"ONLINE","device2":"OFFLINE"}}】
+      */
+    }
+}
+
+    
+```
