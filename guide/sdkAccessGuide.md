@@ -211,7 +211,7 @@ public calss YourClass{
   <dependency>
       <groupId>com.whxx</groupId>
       <artifactId>emc-sdk</artifactId>
-      <version>1.3.4</version>
+      <version>1.4.0</version>
   </dependency>
 ```
 
