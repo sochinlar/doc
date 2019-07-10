@@ -1,4 +1,4 @@
-# 第三方应用接入
+# 第三方应用接入sdk
 &emsp;&emsp;Lantrue物联网平台提供SDK给第三方应用，用于接收平台推送的设备发送的消息<a href="files/emc-sdk-1.4.2.jar" download>点击下载emc-sdk-1.4.2.jar</a>
 
 

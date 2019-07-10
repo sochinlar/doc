@@ -48,7 +48,8 @@ function genSidebarConfig(title) {
         "secretManage",
         "onlineDebug",
         "accessManage",
-        "sdkAccessGuide"
+        "sdkAccessGuide",
+        "httpAccessGuide"
       ]
     }
   ];
