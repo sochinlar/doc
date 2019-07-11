@@ -17,6 +17,7 @@
 + 启动类添加@EnableSubscribeClient
 + 添加实现消息处理类AbstractMessageHandler,如果没有，则使用默认的处理类，只打印消息
 + @Autowired 获取SubscribeClient对象，调用指令发送方法等
++ sdk使用<a href="https://github.com/yandixuan/doc/raw/master/.vuepress/public/files/sdk-client-demo.zip" download>demo下载</a>
 
 
 #### 2.1 添加依赖 
