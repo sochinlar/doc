@@ -1,12 +1,14 @@
 # 第三方应用接入http
-&emsp;&emsp;Lantrue物联网平台提供http回调，用于将设备消息通过http方式推送给第三方应用。
+&emsp;&emsp;Lantrue物联网平台提供http回调，用于将设备消息通过http方式推送给第三方应用。使用http方式推送消息可
+<a href="https://github.com/yandixuan/doc/raw/master/.vuepress/public/files/http-client-demo.zip" download>点击下载http接收消息DEMO</a>
+
 
 ## 产品绑定第三方配置
 
 + 进入平台管理系统-产品管理页面，点击操作列的第三方配置图标<img :src="$withBase('/img/bind.png')" alt="bind">
 + 选择http转发方式(上下线通知可按需求勾选)，填写您的回调接口（平台会以GET方式请求该地址，并携带token参数，url需要将token原值返回给平台，从而验证地址的可用性。
-真正的设备消息回以POST方式推送到该地址），信息填完后确认保存。
-
+真正的设备消息回以POST方式推送到该地址），信息填完后确认保存。如图：
+<img :src="$withBase('/img/http-forward.png')" alt="http转发配置">
 ##  设备上行消息
 
 + 平台推送消息到第三方：通过调用用户填写的回调地址推送消息

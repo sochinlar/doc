@@ -8,7 +8,8 @@
 ### 1 产品绑定第三方配置
 
 + 进入平台管理系统-产品管理页面，点击操作列的第三方配置图标<img :src="$withBase('/img/bind.png')" alt="bind">
-+ 选择SDK转发方式(上下线通知可按需求勾选)，确定保存
++ 选择SDK转发方式(上下线通知可按需求勾选)，确定保存,如图:
+<img :src="$withBase('/img/sdk-forward.png')" alt="sdk转发配置">
 
 ### 2 应用端使用SDK
 
