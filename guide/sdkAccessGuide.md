@@ -1,6 +1,6 @@
 # 第三方应用接入sdk
 &emsp;&emsp;Lantrue物联网平台提供SDK给第三方应用，用于接收平台推送的设备发送的消息
-<a href="https://github.com/yandixuan/doc/raw/master/.vuepress/public/files/emc-sdk-1.4.2.jar" download>点击下载emc-sdk-1.4.2.jar</a>
+<a href="https://github.com/yandixuan/doc/raw/master/.vuepress/public/files/emc-sdk-1.4.2.jar" download>点击下载emc-sdk-1.4.2.jar</a>|
 <a href="https://github.com/yandixuan/doc/raw/master/.vuepress/public/files/sdk-client-demo.zip" download>SDK使用demo下载</a>
 
 ## v1.4.2
