@@ -37,7 +37,10 @@
 ```yaml
 subscribe:
   server:
-    ip: 10.10.0.75
+    #正式机服务器
+    #ip: 111.47.243.211
+    #测试机服务器
+    ip: 221.232.69.190
     port: 9765
   client:
     app-and-secrets:
@@ -48,8 +51,10 @@ subscribe:
 ```yaml
 subscribe:
   server:
-    #服务端ip，
-    ip: 10.10.0.75
+    #正式服务器
+    #ip: 111.47.243.211
+    #测试机服务器
+    ip: 221.232.69.190
     #服务端端口，默认9765
     port: 9765
   client:
